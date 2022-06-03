@@ -1,5 +1,5 @@
 import 'package:e_commerce_app_ui/constants.dart';
-import 'package:e_commerce_app_ui/screens/sign_up/sign_in_screen.dart';
+import 'package:e_commerce_app_ui/screens/sign_in/sign_in_screen.dart';
 import '../../../components/default_button.dart';
 import '../components/splash_content.dart';
 import 'package:e_commerce_app_ui/size_config.dart';
