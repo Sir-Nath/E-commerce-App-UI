@@ -4,6 +4,8 @@ import '../../components/default_button.dart';
 import '../../components/form_error.dart';
 import '../../constants.dart';
 import '../../size_config.dart';
+import '../forgot_password/forgot_password_screen.dart';
+import '../login_success/login_success_screen.dart';
 
 class SignForm extends StatefulWidget {
   const SignForm({Key? key}) : super(key: key);
@@ -40,7 +42,9 @@ class _SignFormState extends State<SignForm> {
                   }),
               const Text('Remember Me'),
               const Spacer(),
-              const Text('Forgot Password', style: TextStyle(decoration: TextDecoration.underline),)
+              GestureDetector(
+                onTap: () => Navigator.popAndPushNamed(context, ForgotPasswordScreen.routeName),
+                  child: const Text('Forgot Password', style: TextStyle(decoration: TextDecoration.underline),))
             ],
           ),
           FormError(errors: errors),
@@ -50,6 +54,7 @@ class _SignFormState extends State<SignForm> {
             press: () {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
+                Navigator.pushNamed(context, LoginSuccessScreen.routeName);
               }
             },
           )
@@ -117,11 +122,13 @@ class _SignFormState extends State<SignForm> {
             setState(() {
               errors.add(kEmailNullError);
             });
+            return'';
           } else if (!emailValidatorRegExp.hasMatch(value) &&
               !errors.contains(kInvalidEmailError)) {
             setState(() {
               errors.add(kInvalidEmailError);
             });
+            return '';
           }
           return null;
         },
