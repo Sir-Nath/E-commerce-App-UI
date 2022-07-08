@@ -27,8 +27,6 @@ class IconWithCounter extends StatelessWidget {
               shape: BoxShape.circle),
           child: SvgPicture.asset(svgSrc),
         ),
-        // if (numOfitems != 0){
-        // }
         Positioned(
           right: 0,
           top: -3,
