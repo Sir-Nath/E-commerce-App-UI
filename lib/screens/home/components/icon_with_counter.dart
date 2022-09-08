@@ -17,7 +17,7 @@ class IconWithCounter extends StatelessWidget {
     return InkWell(
       onTap: press,
       borderRadius: BorderRadius.circular(50),
-      child: Stack(overflow: Overflow.visible, children: [
+      child: Stack(clipBehavior: Clip.none, children: [
         Container(
           padding: EdgeInsets.all(getProportionateScreenWidth(12)),
           width: getProportionateScreenWidth(46),
